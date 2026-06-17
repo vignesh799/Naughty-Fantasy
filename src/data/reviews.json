@@ -1,0 +1,23 @@
+[
+  {
+    "id": "rev_01",
+    "author": "Ari M.",
+    "rating": 5,
+    "title": "Elegant and discreet",
+    "content": "Everything arrived beautifully packaged, and the materials felt far more premium than expected."
+  },
+  {
+    "id": "rev_02",
+    "author": "Nora K.",
+    "rating": 5,
+    "title": "Perfect gift experience",
+    "content": "The curation feels thoughtful and luxurious without being loud. Checkout was simple too."
+  },
+  {
+    "id": "rev_03",
+    "author": "Jules R.",
+    "rating": 4,
+    "title": "Polished from start to finish",
+    "content": "The site was easy to browse, sizing details were clear, and shipping updates were prompt."
+  }
+]
