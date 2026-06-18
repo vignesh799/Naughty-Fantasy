@@ -1,6 +1,7 @@
 export type CheckoutSessionInput = {
   items: Array<{ productId: string; quantity: number }>;
   coupon?: string;
+  privateLockBox?: boolean;
 };
 
 export async function createCheckoutSession(input: CheckoutSessionInput) {

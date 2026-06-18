@@ -1,18 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { Minus, Plus, Trash2 } from "lucide-react";
+import { LockKeyhole, Minus, Plus, Trash2 } from "lucide-react";
+import { SecurePackingVideo } from "@/components/cart/secure-packing-video";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { ProductArt } from "@/components/product/product-art";
 import { useCart } from "@/components/providers/cart-provider";
-import { getProducts } from "@/lib/catalog";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { formatCurrency } from "@/lib/utils";
 
 export function CartPageClient() {
-  const { items, removeItem, updateQuantity, coupon, setCoupon } = useCart();
-  const products = getProducts();
+  const { items, removeItem, updateQuantity, coupon, setCoupon, privateLockBox, setPrivateLockBox } = useCart();
+  const { products } = useCatalog();
   const hydratedItems = items
     .map((item) => ({ item, product: products.find((product) => product.id === item.productId) }))
     .filter((entry): entry is { item: typeof items[number]; product: NonNullable<typeof entry.product> } => Boolean(entry.product));
@@ -60,6 +61,26 @@ export function CartPageClient() {
         <div className="mt-4 flex gap-2">
           <Input defaultValue={coupon} placeholder="Coupon code" onBlur={(event) => setCoupon(event.target.value)} />
           <Button variant="outline" onClick={() => setCoupon(coupon || "FANTASY10")}>Apply</Button>
+        </div>
+        <div className="mt-5 rounded-md border border-primary/20 bg-primary/[0.04] p-3">
+          <label className="flex cursor-pointer items-start gap-3">
+            <input
+              type="checkbox"
+              checked={privateLockBox}
+              onChange={(event) => setPrivateLockBox(event.target.checked)}
+              className="mt-1 size-4 accent-[hsl(var(--primary))]"
+            />
+            <span>
+              <span className="flex items-center gap-2 font-semibold">
+                <LockKeyhole className="size-4 text-primary" />
+                No one can open unless you.
+              </span>
+              <span className="mt-1 block text-xs leading-5 text-muted-foreground">
+                Pack the order in a discreet reusable box secured with a private number lock. No extra charge.
+              </span>
+            </span>
+          </label>
+          {privateLockBox ? <SecurePackingVideo /> : null}
         </div>
         <div className="mt-5 space-y-3 text-sm">
           <div className="flex justify-between"><span>Subtotal</span><span>{formatCurrency(subtotal)}</span></div>

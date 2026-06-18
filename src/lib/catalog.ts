@@ -19,7 +19,7 @@ export const categoryDescriptions: Record<ProductCategory, string> = {
   "Fantasy Collections": "Consent-forward kits that pair imagination with polished design.",
 };
 
-export function getProducts(): Product[] {
+export function getSeedProducts(): Product[] {
   return products as Product[];
 }
 
@@ -27,34 +27,35 @@ export function getReviews(): Review[] {
   return reviews as Review[];
 }
 
-export function getProductBySlug(slug: string) {
-  return getProducts().find((product) => product.slug === slug);
+export function findProductBySlug(products: Product[], slug: string) {
+  return products.find((product) => product.slug === slug);
 }
 
-export function getProductsByCategory(categorySlug: string) {
+export function filterProductsByCategory(products: Product[], categorySlug: string) {
   const category = categories.find((item) => slugify(item) === categorySlug);
   if (!category) return [];
-  return getProducts().filter((product) => product.category === category);
+  return products.filter((product) => product.category === category);
 }
 
 export function getCategoryBySlug(categorySlug: string) {
   return categories.find((item) => slugify(item) === categorySlug);
 }
 
-export function getRelatedProducts(product: Product, limit = 4) {
-  return getProducts()
+export function getRelatedProducts(products: Product[], product: Product, limit = 4) {
+  return products
     .filter((item) => item.category === product.category && item.id !== product.id)
-    .concat(getProducts().filter((item) => item.category !== product.category))
+    .concat(products.filter((item) => item.category !== product.category))
     .slice(0, limit);
 }
 
-export function searchProducts(query: string) {
+export function searchProducts(products: Product[], query: string) {
   const term = query.trim().toLowerCase();
-  if (!term) return getProducts();
-  return getProducts().filter((product) => {
+  if (!term) return products;
+  return products.filter((product) => {
     const haystack = [
       product.name,
       product.category,
+      product.sku ?? "",
       product.description,
       product.color,
       ...product.tags,

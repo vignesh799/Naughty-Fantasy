@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ProductGrid } from "@/components/product/product-grid";
 import { Button } from "@/components/ui/button";
-import { categories, categoryDescriptions, getCategoryBySlug, getProductsByCategory } from "@/lib/catalog";
+import { categories, categoryDescriptions, filterProductsByCategory, getCategoryBySlug } from "@/lib/catalog";
+import { listProducts } from "@/lib/server/product-store";
 import { slugify } from "@/lib/utils";
 
 type Params = Promise<{ slug: string }>;
@@ -11,6 +12,8 @@ type Params = Promise<{ slug: string }>;
 export function generateStaticParams() {
   return categories.map((category) => ({ slug: slugify(category) }));
 }
+
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params;
@@ -26,7 +29,7 @@ export default async function CategoryPage({ params }: { params: Params }) {
   const { slug } = await params;
   const category = getCategoryBySlug(slug);
   if (!category) notFound();
-  const products = getProductsByCategory(slug);
+  const products = filterProductsByCategory(await listProducts(), slug);
 
   return (
     <div className="container-pad py-10">

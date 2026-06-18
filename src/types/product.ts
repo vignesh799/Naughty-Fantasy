@@ -10,6 +10,8 @@ export type Product = {
   slug: string;
   name: string;
   category: ProductCategory;
+  sku?: string;
+  imageUrl?: string;
   description: string;
   details: string[];
   price: number;
@@ -22,6 +24,9 @@ export type Product = {
   isNew?: boolean;
   color: string;
   inventory: number;
+  status?: "active" | "draft";
+  createdAt?: string;
+  updatedAt?: string;
 };
 
 export type Review = {

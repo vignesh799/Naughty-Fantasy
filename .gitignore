@@ -8,3 +8,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+data/products.runtime.json
+data/products.runtime.json.tmp
+public/uploads/products/*
+!public/uploads/products/.gitkeep

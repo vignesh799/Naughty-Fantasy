@@ -21,7 +21,7 @@ export function ProductCard({ product, compact = false }: { product: Product; co
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.28 }}
-      className="group rounded-lg border bg-card p-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+      className="product-card group rounded-lg border bg-card p-3 shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
     >
       <Link href={`/product/${product.slug}`} aria-label={`View ${product.name}`}>
         <ProductArt product={product} className={compact ? "aspect-[5/4]" : undefined} />
@@ -57,7 +57,8 @@ export function ProductCard({ product, compact = false }: { product: Product; co
             ) : null}
           </div>
           <Button
-            size="icon"
+            size="sm"
+            className="shadow-[0_8px_24px_hsl(var(--primary)/.2)]"
             aria-label={`Add ${product.name} to cart`}
             onClick={() => {
               addItem(product.id);
@@ -65,6 +66,7 @@ export function ProductCard({ product, compact = false }: { product: Product; co
             }}
           >
             <ShoppingBag className="size-4" />
+            Add
           </Button>
         </div>
       </div>

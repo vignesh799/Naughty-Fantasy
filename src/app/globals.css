@@ -108,8 +108,147 @@ body {
 
 .product-art {
   background:
-    linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--card)) 48%, hsl(var(--primary) / 0.2) 100%),
-    radial-gradient(circle at 65% 20%, hsl(var(--accent) / 0.25), transparent 34%);
+    radial-gradient(circle at 72% 18%, rgba(36, 211, 198, 0.32), transparent 25%),
+    radial-gradient(circle at 24% 72%, rgba(255, 36, 124, 0.4), transparent 34%),
+    linear-gradient(145deg, #170912 0%, #30101f 45%, #080708 100%);
+}
+
+.product-glow {
+  background: linear-gradient(180deg, rgba(255, 185, 93, 0.25), rgba(255, 28, 120, 0.18));
+}
+
+.product-silhouette {
+  border: 1px solid rgba(255, 188, 112, 0.28);
+  background: linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 30, 119, 0.24) 52%, rgba(0, 0, 0, 0.65));
+}
+
+.product-card {
+  box-shadow: 0 10px 36px rgba(85, 12, 45, 0.06);
+}
+
+.product-runway:nth-of-type(even) {
+  background: hsl(var(--card));
+}
+
+.desire-text {
+  color: transparent;
+  background: linear-gradient(90deg, #ff2c7d 0%, #ff77ac 38%, #f3bd70 78%, #2dd9c9 100%);
+  background-clip: text;
+}
+
+.category-spectrum {
+  background:
+    linear-gradient(180deg, hsl(var(--background)), hsl(var(--card))),
+    radial-gradient(circle at 20% 10%, rgba(255, 37, 124, 0.1), transparent 30%);
+}
+
+.category-tile {
+  position: relative;
+  overflow: hidden;
+}
+
+.category-tile::after {
+  position: absolute;
+  right: -2rem;
+  bottom: -3.5rem;
+  width: 8rem;
+  height: 8rem;
+  content: "";
+  border-radius: 999px;
+  opacity: 0.22;
+  transition: transform 300ms ease;
+}
+
+.category-tile:hover::after {
+  transform: scale(1.25);
+}
+
+.category-tile-1 {
+  background: linear-gradient(145deg, rgba(255, 67, 139, 0.2), hsl(var(--card)) 60%);
+  color: #d4005b;
+}
+
+.category-tile-1::after,
+.story-pink::before {
+  background: #ff267d;
+}
+
+.category-tile-2 {
+  background: linear-gradient(145deg, rgba(37, 210, 195, 0.2), hsl(var(--card)) 60%);
+  color: #087c72;
+}
+
+.category-tile-2::after,
+.story-teal::before {
+  background: #25d2c3;
+}
+
+.category-tile-3 {
+  background: linear-gradient(145deg, rgba(255, 188, 96, 0.24), hsl(var(--card)) 60%);
+  color: #9a5600;
+}
+
+.category-tile-3::after,
+.story-gold::before {
+  background: #ffbc60;
+}
+
+.category-tile-4 {
+  background: linear-gradient(145deg, rgba(138, 88, 205, 0.18), hsl(var(--card)) 60%);
+  color: #6a3e9e;
+}
+
+.category-tile-4::after {
+  background: #8a58cd;
+}
+
+.category-tile-5 {
+  background: linear-gradient(145deg, rgba(226, 44, 75, 0.18), hsl(var(--card)) 60%);
+  color: #b20e36;
+}
+
+.category-tile-5::after {
+  background: #e22c4b;
+}
+
+.story-pink::before,
+.story-teal::before,
+.story-gold::before {
+  position: absolute;
+  inset: auto -3rem -5rem auto;
+  width: 13rem;
+  height: 13rem;
+  content: "";
+  border-radius: 999px;
+  opacity: 0.17;
+  filter: blur(1px);
+  transition: transform 450ms ease, opacity 450ms ease;
+}
+
+.story-pink:hover::before,
+.story-teal:hover::before,
+.story-gold:hover::before {
+  transform: scale(1.35);
+  opacity: 0.28;
+}
+
+.electric-banner {
+  background:
+    linear-gradient(100deg, rgba(8, 4, 7, 0.96), rgba(55, 8, 31, 0.84)),
+    url("/brand/naughty-fantasy-logo.png") center 42% / cover;
+}
+
+.review-stage {
+  background:
+    linear-gradient(125deg, rgba(10, 4, 9, 0.98), rgba(39, 8, 25, 0.92)),
+    url("/brand/naughty-fantasy-logo.png") center 58% / cover;
+}
+
+.newsletter-stage {
+  background:
+    radial-gradient(circle at 78% 30%, rgba(35, 213, 198, 0.22), transparent 30%),
+    radial-gradient(circle at 12% 80%, rgba(255, 33, 122, 0.34), transparent 35%),
+    linear-gradient(120deg, #130810, #2b0a1c 62%, #0b1716);
 }
 
 .focus-ring {

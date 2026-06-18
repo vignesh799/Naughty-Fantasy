@@ -21,55 +21,55 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-40 border-b bg-background/90 backdrop-blur">
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-[#080407]/95 text-white shadow-[0_8px_30px_rgba(0,0,0,.18)] backdrop-blur-xl">
         <div className="container-pad flex h-16 items-center justify-between gap-4">
           <Logo />
           <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
             <div className="group relative">
-              <Link href="/shop" className="focus-ring rounded-md px-3 py-2 text-sm font-medium hover:bg-muted">Shop</Link>
-              <div className="invisible absolute left-0 top-9 w-[620px] rounded-lg border bg-popover p-5 opacity-0 shadow-lg transition group-hover:visible group-hover:opacity-100">
+              <Link href="/shop" className="focus-ring rounded-md px-3 py-2 text-sm font-medium hover:bg-white/10">Shop</Link>
+              <div className="invisible absolute left-0 top-9 w-[620px] rounded-lg border border-white/10 bg-[#120a10] p-5 text-white opacity-0 shadow-2xl transition group-hover:visible group-hover:opacity-100">
                 <div className="grid grid-cols-2 gap-3">
                   {categories.map((category) => (
-                    <Link key={category} href={`/categories/${slugify(category)}`} className="focus-ring rounded-md p-3 hover:bg-muted">
+                    <Link key={category} href={`/categories/${slugify(category)}`} className="focus-ring rounded-md p-3 hover:bg-white/10">
                       <span className="font-semibold">{category}</span>
-                      <span className="mt-1 block text-sm text-muted-foreground">{categoryDescriptions[category]}</span>
+                      <span className="mt-1 block text-sm text-white/55">{categoryDescriptions[category]}</span>
                     </Link>
                   ))}
                 </div>
               </div>
             </div>
             {siteConfig.nav.slice(1).map((item) => (
-              <Link key={item.href} href={item.href} className="focus-ring rounded-md px-3 py-2 text-sm font-medium hover:bg-muted">
+              <Link key={item.href} href={item.href} className="focus-ring rounded-md px-3 py-2 text-sm font-medium hover:bg-white/10">
                 {item.label}
               </Link>
             ))}
           </nav>
           <div className="flex items-center gap-1">
-            <Button variant="ghost" size="icon" onClick={() => setSearchOpen(true)} aria-label="Open search">
+            <Button variant="ghost" size="icon" onClick={() => setSearchOpen(true)} aria-label="Open search" className="text-white hover:bg-white/10 hover:text-white">
               <Search className="size-5" />
             </Button>
-            <Button variant="ghost" size="icon" onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")} aria-label="Toggle theme">
+            <Button variant="ghost" size="icon" onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")} aria-label="Toggle theme" className="text-white hover:bg-white/10 hover:text-white">
               <Sun className="size-5 dark:hidden" />
               <Moon className="hidden size-5 dark:block" />
             </Button>
-            <Button variant="ghost" size="icon" asChild aria-label="Account">
+            <Button variant="ghost" size="icon" asChild aria-label="Account" className="text-white hover:bg-white/10 hover:text-white">
               <Link href="/account/login"><UserRound className="size-5" /></Link>
             </Button>
-            <Button variant="ghost" size="icon" asChild aria-label={`Cart with ${itemCount} items`} className="relative">
+            <Button variant="ghost" size="icon" asChild aria-label={`Cart with ${itemCount} items`} className="relative text-white hover:bg-white/10 hover:text-white">
               <Link href="/cart">
                 <ShoppingBag className="size-5" />
                 {itemCount > 0 ? <span className="absolute -right-1 -top-1 flex size-5 items-center justify-center rounded-full bg-primary text-xs text-primary-foreground">{itemCount}</span> : null}
               </Link>
             </Button>
-            <Button variant="ghost" size="icon" className="lg:hidden" onClick={() => setMobileOpen((value) => !value)} aria-label="Toggle navigation">
+            <Button variant="ghost" size="icon" className="text-white hover:bg-white/10 hover:text-white lg:hidden" onClick={() => setMobileOpen((value) => !value)} aria-label="Toggle navigation">
               {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
             </Button>
           </div>
         </div>
         {mobileOpen ? (
-          <nav className="container-pad grid gap-2 border-t py-4 lg:hidden" aria-label="Mobile navigation">
+          <nav className="container-pad grid gap-2 border-t border-white/10 py-4 lg:hidden" aria-label="Mobile navigation">
             {siteConfig.nav.map((item) => (
-              <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className="focus-ring rounded-md px-3 py-2 font-medium hover:bg-muted">
+              <Link key={item.href} href={item.href} onClick={() => setMobileOpen(false)} className="focus-ring rounded-md px-3 py-2 font-medium hover:bg-white/10">
                 {item.label}
               </Link>
             ))}

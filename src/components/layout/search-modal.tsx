@@ -5,12 +5,14 @@ import Link from "next/link";
 import { Search } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { searchProducts } from "@/lib/catalog";
 import { formatCurrency } from "@/lib/utils";
 
 export function SearchModal({ open, onOpenChange }: { open: boolean; onOpenChange: (open: boolean) => void }) {
   const [query, setQuery] = React.useState("");
-  const results = searchProducts(query).slice(0, 6);
+  const { products } = useCatalog();
+  const results = searchProducts(products, query).slice(0, 6);
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>

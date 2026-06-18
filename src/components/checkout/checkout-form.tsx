@@ -6,13 +6,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { useCart } from "@/components/providers/cart-provider";
-import { getProducts } from "@/lib/catalog";
+import { useCatalog } from "@/components/providers/catalog-provider";
 import { createCheckoutSession } from "@/lib/stripe";
 import { formatCurrency } from "@/lib/utils";
 
 export function CheckoutForm() {
-  const { items, coupon } = useCart();
-  const products = getProducts();
+  const { items, coupon, privateLockBox } = useCart();
+  const { products } = useCatalog();
   const subtotal = items.reduce((total, item) => {
     const product = products.find((entry) => entry.id === item.productId);
     return total + (product?.price ?? 0) * item.quantity;
@@ -42,7 +42,7 @@ export function CheckoutForm() {
           size="lg"
           className="mt-6"
           onClick={async () => {
-            await createCheckoutSession({ items, coupon });
+            await createCheckoutSession({ items, coupon, privateLockBox });
           }}
         >
           <LockKeyhole className="size-4" />
@@ -62,6 +62,12 @@ export function CheckoutForm() {
               </div>
             );
           })}
+          {privateLockBox ? (
+            <div className="flex justify-between gap-3 text-primary">
+              <span>Private number-lock box</span>
+              <span>Included</span>
+            </div>
+          ) : null}
         </div>
         <Separator className="my-4" />
         <div className="space-y-2 text-sm">

@@ -1,9 +1,11 @@
-import { getProductBySlug, getProducts, getProductsByCategory } from "@/lib/catalog";
+import { filterProductsByCategory } from "@/lib/catalog";
+import { getProductBySlug, listProducts } from "@/lib/server/product-store";
 
 export const cms = {
   products: {
-    list: getProducts,
+    list: listProducts,
     bySlug: getProductBySlug,
-    byCategory: getProductsByCategory,
+    byCategory: async (categorySlug: string) =>
+      filterProductsByCategory(await listProducts(), categorySlug),
   },
 };

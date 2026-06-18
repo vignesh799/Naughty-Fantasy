@@ -17,6 +17,7 @@ export default function LoginPage() {
         </div>
         <Button className="mt-6 w-full" type="submit">Sign in</Button>
         <p className="mt-4 text-center text-sm text-muted-foreground">New here? <Link className="font-medium text-primary" href="/account/register">Create an account</Link></p>
+        <p className="mt-2 text-center text-sm text-muted-foreground"><Link className="font-medium text-primary" href="/admin/login">Administrator login</Link></p>
       </form>
     </div>
   );

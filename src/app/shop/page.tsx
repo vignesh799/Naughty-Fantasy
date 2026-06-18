@@ -2,7 +2,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ProductGrid } from "@/components/product/product-grid";
 import { ShopControls } from "@/components/shop/shop-controls";
-import { categories, getProducts, searchProducts } from "@/lib/catalog";
+import { categories, searchProducts } from "@/lib/catalog";
+import { listProducts } from "@/lib/server/product-store";
 import { slugify } from "@/lib/utils";
 
 const PAGE_SIZE = 6;
@@ -14,13 +15,16 @@ export const metadata = {
   description: "Browse Naughty Fantasy lingerie, wellness products, accessories, and fantasy collections.",
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function ShopPage({ searchParams }: { searchParams: SearchParams }) {
   const params = await searchParams;
   const query = typeof params.q === "string" ? params.q : "";
   const category = typeof params.category === "string" ? params.category : "";
   const sort = typeof params.sort === "string" ? params.sort : "featured";
   const page = Number(typeof params.page === "string" ? params.page : "1") || 1;
-  let products = query ? searchProducts(query) : getProducts();
+  const catalog = await listProducts();
+  let products = query ? searchProducts(catalog, query) : catalog;
 
   if (category) {
     products = products.filter((product) => slugify(product.category) === category);

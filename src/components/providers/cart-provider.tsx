@@ -7,12 +7,14 @@ type CartContextValue = {
   items: CartItem[];
   wishlist: string[];
   coupon: string;
+  privateLockBox: boolean;
   addItem: (productId: string, quantity?: number) => void;
   removeItem: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
   clearCart: () => void;
   toggleWishlist: (productId: string) => void;
   setCoupon: (coupon: string) => void;
+  setPrivateLockBox: (enabled: boolean) => void;
 };
 
 const CartContext = React.createContext<CartContextValue | undefined>(undefined);
@@ -23,23 +25,25 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [items, setItems] = React.useState<CartItem[]>([]);
   const [wishlist, setWishlist] = React.useState<string[]>([]);
   const [coupon, setCouponState] = React.useState("");
+  const [privateLockBox, setPrivateLockBox] = React.useState(false);
 
   React.useEffect(() => {
     const stored = window.localStorage.getItem(STORAGE_KEY);
     if (!stored) return;
     try {
-      const parsed = JSON.parse(stored) as Pick<CartContextValue, "items" | "wishlist" | "coupon">;
+      const parsed = JSON.parse(stored) as Pick<CartContextValue, "items" | "wishlist" | "coupon" | "privateLockBox">;
       setItems(parsed.items ?? []);
       setWishlist(parsed.wishlist ?? []);
       setCouponState(parsed.coupon ?? "");
+      setPrivateLockBox(parsed.privateLockBox ?? false);
     } catch {
       window.localStorage.removeItem(STORAGE_KEY);
     }
   }, []);
 
   React.useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ items, wishlist, coupon }));
-  }, [items, wishlist, coupon]);
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ items, wishlist, coupon, privateLockBox }));
+  }, [items, wishlist, coupon, privateLockBox]);
 
   const addItem = React.useCallback((productId: string, quantity = 1) => {
     setItems((current) => {
@@ -76,8 +80,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const setCoupon = React.useCallback((nextCoupon: string) => setCouponState(nextCoupon.trim().toUpperCase()), []);
 
   const value = React.useMemo(
-    () => ({ items, wishlist, coupon, addItem, removeItem, updateQuantity, clearCart, toggleWishlist, setCoupon }),
-    [items, wishlist, coupon, addItem, removeItem, updateQuantity, clearCart, toggleWishlist, setCoupon],
+    () => ({ items, wishlist, coupon, privateLockBox, addItem, removeItem, updateQuantity, clearCart, toggleWishlist, setCoupon, setPrivateLockBox }),
+    [items, wishlist, coupon, privateLockBox, addItem, removeItem, updateQuantity, clearCart, toggleWishlist, setCoupon],
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

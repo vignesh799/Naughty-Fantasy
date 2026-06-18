@@ -5,12 +5,21 @@
     "name": "Velvet Nocturne Set",
     "category": "Lingerie",
     "description": "A refined satin-and-lace lingerie set designed for a polished evening ritual.",
-    "details": ["Soft stretch lace", "Adjustable gold-tone hardware", "Inclusive fit range", "Gift-ready packaging"],
-    "price": 118,
-    "compareAtPrice": 148,
+    "details": [
+      "Soft stretch lace",
+      "Adjustable gold-tone hardware",
+      "Inclusive fit range",
+      "Gift-ready packaging"
+    ],
+    "price": 9794,
+    "compareAtPrice": 12284,
     "rating": 4.9,
     "reviewCount": 182,
-    "tags": ["satin", "lace", "gift"],
+    "tags": [
+      "satin",
+      "lace",
+      "gift"
+    ],
     "badge": "Best seller",
     "isBestSeller": true,
     "color": "Bordeaux",
@@ -22,11 +31,20 @@
     "name": "Moonlit Corset",
     "category": "Lingerie",
     "description": "Structured mesh corsetry with flexible boning and a luminous pearl finish.",
-    "details": ["Flexible support", "Breathable mesh panels", "Pearl-inspired trim", "Ships discreetly"],
-    "price": 142,
+    "details": [
+      "Flexible support",
+      "Breathable mesh panels",
+      "Pearl-inspired trim",
+      "Ships discreetly"
+    ],
+    "price": 11786,
     "rating": 4.8,
     "reviewCount": 96,
-    "tags": ["corset", "mesh", "occasion"],
+    "tags": [
+      "corset",
+      "mesh",
+      "occasion"
+    ],
     "badge": "Editor pick",
     "color": "Pearl",
     "inventory": 11
@@ -37,11 +55,20 @@
     "name": "Duet Silk Kit",
     "category": "Couples Collection",
     "description": "A tasteful couples collection with silk accessories and guided connection cards.",
-    "details": ["Silk blindfold", "Conversation cards", "Travel pouch", "Beginner friendly"],
-    "price": 86,
+    "details": [
+      "Silk blindfold",
+      "Conversation cards",
+      "Travel pouch",
+      "Beginner friendly"
+    ],
+    "price": 7138,
     "rating": 4.7,
     "reviewCount": 138,
-    "tags": ["couples", "silk", "starter"],
+    "tags": [
+      "couples",
+      "silk",
+      "starter"
+    ],
     "badge": "Best seller",
     "isBestSeller": true,
     "color": "Champagne",
@@ -53,12 +80,21 @@
     "name": "Ember Date Night Box",
     "category": "Couples Collection",
     "description": "A curated box for playful, elegant date nights with ambience and shared rituals.",
-    "details": ["Mood candle", "Prompt deck", "Satin ties", "Reusable keepsake box"],
-    "price": 124,
-    "compareAtPrice": 154,
+    "details": [
+      "Mood candle",
+      "Prompt deck",
+      "Satin ties",
+      "Reusable keepsake box"
+    ],
+    "price": 10292,
+    "compareAtPrice": 12782,
     "rating": 4.9,
     "reviewCount": 211,
-    "tags": ["gift", "date night", "curated"],
+    "tags": [
+      "gift",
+      "date night",
+      "curated"
+    ],
     "badge": "Limited",
     "color": "Ember",
     "inventory": 7
@@ -69,11 +105,20 @@
     "name": "Aura Massage Oil",
     "category": "Wellness Products",
     "description": "A skin-softening wellness oil with a warm botanical scent and clean finish.",
-    "details": ["Body-safe formula", "Vegan ingredients", "Non-sticky finish", "Glass bottle"],
-    "price": 34,
+    "details": [
+      "Body-safe formula",
+      "Vegan ingredients",
+      "Non-sticky finish",
+      "Glass bottle"
+    ],
+    "price": 2822,
     "rating": 4.8,
     "reviewCount": 74,
-    "tags": ["wellness", "body care", "vegan"],
+    "tags": [
+      "wellness",
+      "body care",
+      "vegan"
+    ],
     "badge": "New",
     "isNew": true,
     "color": "Amber",
@@ -85,11 +130,20 @@
     "name": "Luna Wellness Wand",
     "category": "Wellness Products",
     "description": "A sleek rechargeable wellness accessory with quiet modes and a travel lock.",
-    "details": ["USB-C rechargeable", "Water-resistant", "Quiet motor", "Storage sleeve included"],
-    "price": 96,
+    "details": [
+      "USB-C rechargeable",
+      "Water-resistant",
+      "Quiet motor",
+      "Storage sleeve included"
+    ],
+    "price": 7968,
     "rating": 4.6,
     "reviewCount": 89,
-    "tags": ["wellness", "rechargeable", "travel"],
+    "tags": [
+      "wellness",
+      "rechargeable",
+      "travel"
+    ],
     "badge": "New",
     "isNew": true,
     "color": "Obsidian",
@@ -101,11 +155,20 @@
     "name": "Gilded Garter",
     "category": "Accessories",
     "description": "A delicate adjustable garter with jewelry-inspired hardware and velvet backing.",
-    "details": ["Adjustable fit", "Velvet-backed band", "Gold-tone accents", "Pairs with lingerie sets"],
-    "price": 42,
+    "details": [
+      "Adjustable fit",
+      "Velvet-backed band",
+      "Gold-tone accents",
+      "Pairs with lingerie sets"
+    ],
+    "price": 3486,
     "rating": 4.7,
     "reviewCount": 55,
-    "tags": ["accessory", "gold", "velvet"],
+    "tags": [
+      "accessory",
+      "gold",
+      "velvet"
+    ],
     "color": "Black Gold",
     "inventory": 31
   },
@@ -115,11 +178,20 @@
     "name": "Opal Body Chain",
     "category": "Accessories",
     "description": "A lightweight body chain made to layer beautifully over lingerie or eveningwear.",
-    "details": ["Adjustable clasp", "Nickel-safe plating", "Layer-friendly profile", "Protective pouch"],
-    "price": 58,
+    "details": [
+      "Adjustable clasp",
+      "Nickel-safe plating",
+      "Layer-friendly profile",
+      "Protective pouch"
+    ],
+    "price": 4814,
     "rating": 4.5,
     "reviewCount": 41,
-    "tags": ["jewelry", "accessory", "layering"],
+    "tags": [
+      "jewelry",
+      "accessory",
+      "layering"
+    ],
     "badge": "Editor pick",
     "color": "Opal Gold",
     "inventory": 20
@@ -130,12 +202,21 @@
     "name": "Masquerade Fantasy Kit",
     "category": "Fantasy Collections",
     "description": "A sophisticated fantasy set with a satin mask, cuffs, and scene-setting cards.",
-    "details": ["Satin mask", "Soft cuffs", "Scenario cards", "No explicit imagery"],
-    "price": 78,
-    "compareAtPrice": 96,
+    "details": [
+      "Satin mask",
+      "Soft cuffs",
+      "Scenario cards",
+      "No explicit imagery"
+    ],
+    "price": 6474,
+    "compareAtPrice": 7968,
     "rating": 4.8,
     "reviewCount": 124,
-    "tags": ["fantasy", "mask", "couples"],
+    "tags": [
+      "fantasy",
+      "mask",
+      "couples"
+    ],
     "badge": "Best seller",
     "isBestSeller": true,
     "color": "Midnight",
@@ -147,11 +228,20 @@
     "name": "Celeste Roleplay Set",
     "category": "Fantasy Collections",
     "description": "An elevated roleplay starter set balancing imagination, comfort, and restraint.",
-    "details": ["Adjustable accessories", "Consent-first prompt guide", "Soft storage wrap", "Premium finish"],
-    "price": 112,
+    "details": [
+      "Adjustable accessories",
+      "Consent-first prompt guide",
+      "Soft storage wrap",
+      "Premium finish"
+    ],
+    "price": 9296,
     "rating": 4.6,
     "reviewCount": 67,
-    "tags": ["fantasy", "guide", "premium"],
+    "tags": [
+      "fantasy",
+      "guide",
+      "premium"
+    ],
     "badge": "Limited",
     "isNew": true,
     "color": "Celeste",

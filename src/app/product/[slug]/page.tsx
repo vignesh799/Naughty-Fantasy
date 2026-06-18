@@ -7,17 +7,20 @@ import { ProductCarousel } from "@/components/product/product-carousel";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { getProductBySlug, getProducts, getRelatedProducts } from "@/lib/catalog";
+import { getRelatedProducts, getSeedProducts } from "@/lib/catalog";
+import { getProductBySlug, listProducts } from "@/lib/server/product-store";
 
 type Params = Promise<{ slug: string }>;
 
 export function generateStaticParams() {
-  return getProducts().map((product) => ({ slug: product.slug }));
+  return getSeedProducts().map((product) => ({ slug: product.slug }));
 }
+
+export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const product = await getProductBySlug(slug);
   if (!product) return {};
   return {
     title: product.name,
@@ -32,9 +35,10 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 
 export default async function ProductPage({ params }: { params: Params }) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const products = await listProducts();
+  const product = products.find((item) => item.slug === slug);
   if (!product) notFound();
-  const related = getRelatedProducts(product);
+  const related = getRelatedProducts(products, product);
 
   return (
     <>
